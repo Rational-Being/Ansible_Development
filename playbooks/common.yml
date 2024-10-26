@@ -1,0 +1,60 @@
+---
+- name: update web, nfs and db servers
+  hosts: webservers, nfs, db
+  become: yes
+  tasks:
+    - name: ensure wireshark is at the latest version
+      yum:
+        name: wireshark
+        state: latest
+
+    - name: create a directory
+      file:
+        path: /home/ansible
+        state: directory
+        mode: '0755'
+
+    - name: create a file inside the directory
+      copy:
+        content: "This is a test file for Ansible playbook tasks.\n"
+        dest: /home/ansible/test.txt
+
+    - name: change timezone to UTC
+      command: timedatectl set-timezone UTC
+
+    - name: run a shell script
+      shell: |
+        echo "Hurray!!! I am writing an Ansible Play book" > /home/ansible/output.txt
+        date >> /home/ansible/output.txt
+
+- name: update LB server
+  hosts: lb
+  become: yes
+  tasks:
+    - name: Update apt repo
+      apt: 
+        update_cache: yes
+
+    - name: ensure wireshark is at the latest version
+      apt:
+        name: wireshark
+        state: latest
+
+    - name: create a directory
+      file:
+        path: /home/ansible
+        state: directory
+        mode: '0755'
+
+    - name: create a file inside the directory
+      copy:
+        content: "This is a test file for Ansible playbook tasks.\n"
+        dest: /home/ansible/test.txt
+
+    - name: change timezone to UTC
+      command: timedatectl set-timezone UTC
+
+    - name: run a shell script
+      shell: |
+        echo "Hurray!!! I am writing an Ansible Play book" > /home/ansible/output.txt
+        date >> /home/ansible/output.txt
