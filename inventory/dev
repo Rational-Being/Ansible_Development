@@ -1,15 +1,2 @@
 [nfs]
-127.0.0.1 ansible_ssh_user=ec2-user
-
-[nfs]
-127.0.0.1 ansible_ssh_user=ec2-user
-
-[webservers]
-127.0.0.1 ansible_ssh_user=ec2-user
-127.0.0.1 ansible_ssh_user=ec2-user
-
-[db]
-127.0.0.1 ansible_ssh_user=ec2-user 
-
-[lb]
-127.0.0.1 ansible_ssh_user=ubuntu
+51.13.42.235 ansible_ssh_user=azureuser
