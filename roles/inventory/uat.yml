@@ -1,0 +1,9 @@
+all:
+  children:
+    uat-webservers:
+      hosts:
+        51.107.212.125: {}
+        20.63.1.247: {}
+      vars:
+        ansible_user: azureuser
+        ansible_become: true

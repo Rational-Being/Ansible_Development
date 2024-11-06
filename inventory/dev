@@ -2,7 +2,4 @@
 51.13.42.235 ansible_ssh_user=azureuser
 
 [webservers]
-51.13.42.235 ansible_ssh_user=azureuser
-
-[db]
-51.13.42.235 ansible_ssh_user=azureuser
+20.63.1.247 ansible_ssh_user=azureuser
