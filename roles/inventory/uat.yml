@@ -1,9 +1,8 @@
-all:
-  children:
-    uat-webservers:
-      hosts:
-        51.107.212.125: {}
-        20.63.1.247: {}
-      vars:
-        ansible_user: azureuser
-        ansible_become: true
+[lb]
+loadbalancer1 ansible_host=4.206.15.122
+
+[lb:vars]
+ansible_user=azureuser
+ansible_ssh_private_key_file=~/.ssh/jenkins.pem
+ansible_become=true
+env_vars_file=env-vars/uat.yml
