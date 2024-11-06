@@ -13,12 +13,16 @@
     state: present
     update_cache: yes
 
+- name: ensure /var/www/html is empty
+  become: true
+  ansible.builtin.file:
+    path: /var/www/html
+    state: absent  # This will remove the directory and its contents
+
 - name: clone a repo
   become: true
   ansible.builtin.git:
-    repo: https://github.com/<your-name>/tooling.git
-    dest: /var/www/html
-    force: yes
+    repo: https://github.com/Rational-Being/tooling.git
 
 - name: copy html content to one level up
   become: true
